@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bankapp-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: BankApp
+  template:
+    metadata:
+      labels:
+        app: BankApp
+    spec:
+      containers:
+      - name: dockersamplerepos
+        image: samplecr7.azurecr.io/dockersamplerepos:latest
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: dsconfigbankapp
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bankapp
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: BankApp
