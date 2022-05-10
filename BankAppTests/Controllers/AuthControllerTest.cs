@@ -2,6 +2,7 @@
 using BankApp.Models;
 using BankApp.Processor.IProcessor;
 using BankApp.Repository.IRepository;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -24,7 +25,6 @@ namespace BankAppTests.Controllers
         private Mock<ILoginRepository> _repo;
         private string token;
         Customer customer;
-        ResponseModel responseModel;
 
         [SetUp]
         public void Setup()
@@ -42,7 +42,6 @@ namespace BankAppTests.Controllers
                 Address = "abcstreet",
                 Contact = "8569856985"
             };
-            responseModel = new ResponseModel() { Data = token };
         }
 
         [Test]
@@ -54,6 +53,29 @@ namespace BankAppTests.Controllers
                 Data = token 
             };
             _repo.Setup(x => x.Login(It.IsAny<Customer>())).Returns(true);
+            _loginProcessor.Setup(x => x.Process(It.IsAny<Customer>())).Returns(responseModel2);
+            Customer customer2 = new Customer()
+            {
+                CustomerName = "John",
+                MailId = "abc12@gmail.com",
+                AccountType = "Current",
+                Password = "asd123546",
+                Address = "abcstreet",
+                Contact = "8569856985"
+            };
+            var result = _controller.Login(customer2);
+            Assert.That(result, Is.InstanceOf<OkObjectResult>());
+        }
+
+        [Test]
+        public void Registration_Success()
+        {
+            ResponseModel responseModel = new ResponseModel()
+            {
+                StateOfModel = ResponseCode.SuccessRegistration
+            };
+            _repo.Setup(x => x.Login(It.IsAny<Customer>())).Returns(false);
+            _repo.Setup(x => x.Register(It.IsAny<Customer>())).Returns(customer);
             _loginProcessor.Setup(x => x.Process(It.IsAny<Customer>())).Returns(responseModel);
             Customer customer2 = new Customer()
             {
@@ -64,8 +86,31 @@ namespace BankAppTests.Controllers
                 Address = "abcstreet",
                 Contact = "8569856985"
             };
-            var result = _controller.Login(customer2) as StatusCodeResult;
-            result.StatusCode.ShouldBe(200);            
+            var result = _controller.Login(customer2);
+            Assert.That(result, Is.InstanceOf<OkObjectResult>());
+        }
+
+        [Test]
+        public void Registration_Failure()
+        {
+            ResponseModel responseModel = new ResponseModel()
+            {
+                StateOfModel = ResponseCode.Failure
+            };
+            _repo.Setup(x => x.Login(It.IsAny<Customer>())).Returns(false);
+            _repo.Setup(x => x.Register(It.IsAny<Customer>())).Returns((Customer)null);
+            _loginProcessor.Setup(x => x.Process(It.IsAny<Customer>())).Returns(responseModel);
+            Customer customer2 = new Customer()
+            {
+                CustomerName = "John",
+                MailId = "abc12@gmail.com",
+                AccountType = "Current",
+                Password = "asd123546",
+                Address = "abcstreet",
+                Contact = "8569856985"
+            };
+            var result = _controller.Login(customer2);
+            Assert.That(result, Is.InstanceOf<BadRequestObjectResult>());
         }
     }
 }

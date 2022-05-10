@@ -54,6 +54,7 @@ C:\Users\Devi\Source\Repos\RelxProject\BankApp\bin\Debug\netcoreapp3.1\runtimes\
 C:\Users\Devi\Source\Repos\RelxProject\BankApp\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 C:\Users\Devi\Source\Repos\RelxProject\BankApp\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\Devi\Source\Repos\RelxProject\BankApp\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Devi\Source\Repos\RelxProject\BankApp\obj\Debug\netcoreapp3.1\BankApp.csprojAssemblyReference.cache
 C:\Users\Devi\Source\Repos\RelxProject\BankApp\obj\Debug\netcoreapp3.1\BankApp.csproj.CoreCompileInputs.cache
 C:\Users\Devi\Source\Repos\RelxProject\BankApp\obj\Debug\netcoreapp3.1\BankApp.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Devi\Source\Repos\RelxProject\BankApp\obj\Debug\netcoreapp3.1\BankApp.MvcApplicationPartsAssemblyInfo.cache

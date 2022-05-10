@@ -1,7 +1,3 @@
-C:\Users\Devi\Source\Repos\RelxProject\BankAppTests\obj\Debug\netcoreapp3.1\BankAppTests.csprojAssemblyReference.cache
-C:\Users\Devi\Source\Repos\RelxProject\BankAppTests\obj\Debug\netcoreapp3.1\BankAppTests.csproj.CoreCompileInputs.cache
-C:\Users\Devi\Source\Repos\RelxProject\BankAppTests\obj\Debug\netcoreapp3.1\BankAppTests.AssemblyInfoInputs.cache
-C:\Users\Devi\Source\Repos\RelxProject\BankAppTests\obj\Debug\netcoreapp3.1\BankAppTests.AssemblyInfo.cs
 C:\Users\Devi\Source\Repos\RelxProject\BankAppTests\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\Devi\Source\Repos\RelxProject\BankAppTests\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\Devi\Source\Repos\RelxProject\BankAppTests\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -143,6 +139,10 @@ C:\Users\Devi\Source\Repos\RelxProject\BankAppTests\bin\Debug\netcoreapp3.1\runt
 C:\Users\Devi\Source\Repos\RelxProject\BankAppTests\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Devi\Source\Repos\RelxProject\BankAppTests\bin\Debug\netcoreapp3.1\BankApp.dll
 C:\Users\Devi\Source\Repos\RelxProject\BankAppTests\bin\Debug\netcoreapp3.1\BankApp.pdb
+C:\Users\Devi\Source\Repos\RelxProject\BankAppTests\obj\Debug\netcoreapp3.1\BankAppTests.csprojAssemblyReference.cache
+C:\Users\Devi\Source\Repos\RelxProject\BankAppTests\obj\Debug\netcoreapp3.1\BankAppTests.csproj.CoreCompileInputs.cache
+C:\Users\Devi\Source\Repos\RelxProject\BankAppTests\obj\Debug\netcoreapp3.1\BankAppTests.AssemblyInfoInputs.cache
+C:\Users\Devi\Source\Repos\RelxProject\BankAppTests\obj\Debug\netcoreapp3.1\BankAppTests.AssemblyInfo.cs
 C:\Users\Devi\Source\Repos\RelxProject\BankAppTests\obj\Debug\netcoreapp3.1\BankAppTests.csproj.CopyComplete
 C:\Users\Devi\Source\Repos\RelxProject\BankAppTests\obj\Debug\netcoreapp3.1\BankAppTests.dll
 C:\Users\Devi\Source\Repos\RelxProject\BankAppTests\obj\Debug\netcoreapp3.1\BankAppTests.pdb
