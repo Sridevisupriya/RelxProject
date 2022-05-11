@@ -112,5 +112,27 @@ namespace BankAppTests.Controllers
             var result = _controller.Login(customer2);
             Assert.That(result, Is.InstanceOf<BadRequestObjectResult>());
         }
+
+        [Test]
+        public void Registration_InternalError()
+        {
+            ResponseModel responseModel = new ResponseModel()
+            {
+                StateOfModel = ResponseCode.InternalError
+            };
+            _repo.Setup(x => x.Register(It.IsAny<Customer>())).Returns(customer);
+            _loginProcessor.Setup(x => x.Process(It.IsAny<Customer>())).Returns(responseModel);
+            Customer customer2 = new Customer()
+            {
+                CustomerName = "John",
+                MailId = "abc12@gmail.com",
+                AccountType = "Current",
+                Password = "asd123546",
+                Address = "abcstreet",
+                Contact = "8569856985"
+            };
+            var result = _controller.Login(customer2);
+            Assert.That(result, Is.InstanceOf<BadRequestObjectResult>());
+        }
     }
 }

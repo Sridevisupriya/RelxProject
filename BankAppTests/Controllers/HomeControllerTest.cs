@@ -102,6 +102,29 @@ namespace BankAppTests.Controllers
         }
 
         [Test]
+        public void UpdateAccount_InternalError()
+        {
+            ResponseModel responseModel = new ResponseModel()
+            {
+                StateOfModel = ResponseCode.InternalError
+            };
+
+            _updateAccountRepo.Setup(x => x.UpdateAccountDetails(customer)).Returns((Customer)null);
+            _updateAccountProcessor.Setup(x => x.UpdateAccountDetails(It.IsAny<Customer>())).Returns(responseModel);
+            Customer customer2 = new Customer()
+            {
+                CustomerName = "John",
+                MailId = "abc12@gmail.com",
+                AccountType = "Current",
+                Password = "asd123546",
+                Address = "abcstreet",
+                Contact = "8569856985"
+            };
+            var result = _controller.UpdateAccount(customer2);
+            Assert.That(result, Is.InstanceOf<BadRequestObjectResult>());
+        }
+
+        [Test]
         public void LoanDetails_Success()
         {
             ResponseModel responseModel = new ResponseModel()
@@ -114,7 +137,7 @@ namespace BankAppTests.Controllers
             var result = _controller.ApplyLoan(loanDetails);
             Assert.That(result, Is.InstanceOf<OkObjectResult>());
         }
-
+    
         [Test]
         public void GetLoanDetailsById_Success()
         {
@@ -162,6 +185,20 @@ namespace BankAppTests.Controllers
             _loanDetailsProcessor.Setup(x => x.ApplyLoan(It.IsAny<LoanDetails>())).Returns(responseModel);
             var result = _controller.ApplyLoan(loanDetails);
             Assert.That(result, Is.InstanceOf<NotFoundObjectResult>());
+        }
+
+        [Test]
+        public void LoanDetails_InternalError()
+        {
+            ResponseModel responseModel = new ResponseModel()
+            {
+                StateOfModel = ResponseCode.InternalError
+            };
+
+            _loanDetailsRepo.Setup(x => x.ApplyLoan(loanDetails)).Returns((LoanDetails)null);
+            _loanDetailsProcessor.Setup(x => x.ApplyLoan(It.IsAny<LoanDetails>())).Returns(responseModel);
+            var result = _controller.ApplyLoan(loanDetails);
+            Assert.That(result, Is.InstanceOf<BadRequestObjectResult>());
         }
     }
 }
