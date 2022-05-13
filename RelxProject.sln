@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankApp", "BankApp\BankApp.csproj", "{BD7CE95F-EFA6-49A8-9043-FD6809492396}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankApp", "BankApp\BankApp.csproj", "{BD7CE95F-EFA6-49A8-9043-FD6809492396}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAppTests", "BankAppTests\BankAppTests.csproj", "{F4E7C46E-4C2D-43FD-854B-A1AA4483D15C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankAppTests", "BankAppTests\BankAppTests.csproj", "{F4E7C46E-4C2D-43FD-854B-A1AA4483D15C}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{F1F3D6E2-2ACE-4CCC-81FA-7315555E614C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{F4E7C46E-4C2D-43FD-854B-A1AA4483D15C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4E7C46E-4C2D-43FD-854B-A1AA4483D15C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4E7C46E-4C2D-43FD-854B-A1AA4483D15C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1F3D6E2-2ACE-4CCC-81FA-7315555E614C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1F3D6E2-2ACE-4CCC-81FA-7315555E614C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1F3D6E2-2ACE-4CCC-81FA-7315555E614C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1F3D6E2-2ACE-4CCC-81FA-7315555E614C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
