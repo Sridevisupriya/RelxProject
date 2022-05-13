@@ -28,22 +28,37 @@ namespace BankApp.Validations
 
         public LinkedList<string> ValidateAllFields(Customer customer)
         {
-            if (customer.CustomerName == string.Empty)
+            if (string.IsNullOrEmpty(customer.CustomerName))
             {
                 validationErrors.AddLast("CustomerName is Required");
             }
 
-            if (customer.Password.Length < 8)
+            if (string.IsNullOrEmpty(customer.Password) && customer.Password.Length < 8)
             {
                 validationErrors.AddLast("Expecting Password of Length 8 characters");
             }
 
-            if (customer.Address == string.Empty)
+            if (string.IsNullOrEmpty(customer.Address))
             {
                 validationErrors.AddLast("Address is Required");
             }
 
-            if (customer.AccountType == string.Empty)
+            if (string.IsNullOrEmpty(customer.State))
+            {
+                validationErrors.AddLast("State is Required");
+            }
+
+            if (string.IsNullOrEmpty(customer.Country))
+            {
+                validationErrors.AddLast("Country is Required");
+            }
+
+            if (string.IsNullOrEmpty(customer.PAN))
+            {
+                validationErrors.AddLast("PAN details is Required");
+            }
+
+            if (string.IsNullOrEmpty(customer.AccountType))
             {
                 validationErrors.AddLast("Account Type is Required");
             }
@@ -62,7 +77,7 @@ namespace BankApp.Validations
                 }
             }
 
-            if (customer.Contact == string.Empty)
+            if (string.IsNullOrEmpty(customer.Contact))
             {
                 validationErrors.AddLast("Contact details are required");
             }

@@ -34,7 +34,10 @@ namespace BankAppTests.Processor
                 AccountType = "Current",
                 Password = "asd123546",
                 Address = "abcstreet",
-                Contact = "8569856985"
+                Contact = "8569856985",
+                State = "AP",
+                Country = "India",
+                PAN="asde345rt"
             };           
         }   
         

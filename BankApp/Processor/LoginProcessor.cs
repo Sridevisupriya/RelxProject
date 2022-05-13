@@ -32,11 +32,12 @@ namespace BankApp.Processor
             {
                 responseModel = Login(customer);
             }
-            catch(Exception )
-            {
+            catch(Exception e)
+            {                
                 responseModel = new ResponseModel()
                 {
-                    StateOfModel = ResponseCode.InternalError 
+                    StateOfModel = ResponseCode.InternalError,
+                    Data = e.ToString()
                 };                
             }
             return responseModel;
@@ -64,6 +65,7 @@ namespace BankApp.Processor
             {
                 _logger.LogInformation("Login Successfull");
                 var token = GenerateJSONWebToken(customer);
+                _logger.LogInformation("JSON Web Token generated Successfully");
                 ResponseModel responseModelSuccess = new ResponseModel()
                 {
                     StateOfModel = ResponseCode.SuccessLogin,
@@ -81,13 +83,11 @@ namespace BankApp.Processor
 
         public string GenerateJSONWebToken(Customer userInfo)
         {
+            _logger.LogInformation("JSON Web Token generation Started");
             var tokenHandler = new JwtSecurityTokenHandler();
             var tokenKey = Encoding.ASCII.GetBytes(_config["Jwt:Key"]);
             var tokenDEscriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(new Claim[] {
-                new Claim(ClaimTypes.Name , userInfo.CustomerName)
-                }),
+            {                
                 Expires = DateTime.UtcNow.AddHours(1),
                 SigningCredentials = new SigningCredentials(
                                         new SymmetricSecurityKey(tokenKey),

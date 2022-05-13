@@ -31,7 +31,9 @@ namespace BankApp.Controllers
                 case ResponseCode.ValidationError:
                     return Ok(result.Errors);
                 case ResponseCode.Failure:
-                    return BadRequest("Login unsuccessfull , Please check the details");
+                    return BadRequest("Login unsuccessfull , Please check the details");               
+                case ResponseCode.InternalError:
+                    return BadRequest("Exception Occured" + result.Data);
                 default:
                     return BadRequest("Internal error");
             }

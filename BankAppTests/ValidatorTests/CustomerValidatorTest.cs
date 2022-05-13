@@ -20,7 +20,10 @@ namespace BankAppTests.ValidatorTests
                 AccountType = "Current",
                 Password = "asd123546",
                 Address = "abcstreet",
-                Contact = "8569856985"
+                Contact = "8569856985",
+                State = "AP",
+                Country = "India",
+                PAN = "asde345rt"
             };
 
         }
@@ -75,11 +78,11 @@ namespace BankAppTests.ValidatorTests
         }
 
         [Test]
-        public void Validate_PasswordInvalid_ReturnsValidationError()
+        public void Validate_StateEmpty_ReturnsValidationError()
         {
-            customer.Password = "ade3";
+            customer.State = string.Empty;
             var result = customerValidator.ValidateAllFields(customer);
-            result.ShouldContain("Expecting Password of Length 8 characters");
+            result.ShouldContain("State is Required");
         }
 
         [Test]
